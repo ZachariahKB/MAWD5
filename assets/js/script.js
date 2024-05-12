@@ -1,6 +1,7 @@
 // Retrieve tasks and nextId from localStorage
 const myModal = document.getElementById('formModal')
-const myInput = document.getElementById('myInput')
+// const myInput = document.getElementById('myInput')
+const addTaskEl = $("#addTask")
 let taskList = JSON.parse(localStorage.getItem("tasks"));
 let nextId = JSON.parse(localStorage.getItem("nextId"));
 
@@ -21,6 +22,14 @@ function renderTaskList() {
 
 // Todo: create a function to handle adding a new task
 function handleAddTask(event){
+    const titleInput = $("#taskTitle").val()
+    const dateInput= $("#taskDuedate").val()
+    const description= $("#taskDescription").val()
+    
+    console.log("handle add task")
+    console.log(titleInput)
+    console.log(dateInput)
+    console.log(description)
 
 }
 
@@ -39,7 +48,8 @@ $(document).ready(function () {
     
     
     myModal.addEventListener('shown.bs.modal', () => {
-      myInput.focus()
+    //   myInput.focus()
       console.log ("clicked")
     })
+    addTaskEl.on("click", handleAddTask)
 });
