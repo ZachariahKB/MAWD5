@@ -1,4 +1,5 @@
 // Retrieve tasks and nextId from localStorage
+var toDOcontainer = document.getElementById("todo-cards")
 const myModal = document.getElementById('formModal')
 // const myInput = document.getElementById('myInput')
 const addTaskEl = $("#addTask")
@@ -30,6 +31,15 @@ function handleAddTask(event){
     console.log(titleInput)
     console.log(dateInput)
     console.log(description)
+
+    const task= {
+      title: titleInput,
+      date: dateInput,
+      descript: description,
+      id: generateTaskId(),
+      status:"to-do"
+    }
+    createTaskCard(task)
 
 }
 
